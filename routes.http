@@ -2,7 +2,7 @@ POST https://node-crud-g3c0.onrender.com/videos
 Content-Type: application/json
 
 {
-    "title": "video Node",
+    "title": "video Node pt2",
     "description": "Esse é o video 01",
     "duration": 180
 }
