@@ -48,16 +48,10 @@ server.delete("/videos/:id", async (request, reply) => {
 });
 
 // Melhor adicionar tratamento de erro
-server.listen(
-  {
-    port: process.env.PORT ?? 3333,
-    host: "0.0.0.0", // Garantir que o servidor esteja ouvindo em todas as interfaces
-  },
-  (err, address) => {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-    console.log(`Server running at ${address}`);
+server.listen(process.env.PORT ?? 3333, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
   }
-);
+  console.log(`Server running on ${address}`);
+});
