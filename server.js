@@ -6,7 +6,7 @@ const server = fastify();
 
 const database = new DatabasePostgres();
 
-server.post("/videos", async (request, repply) => {
+server.post("/videos", async (request, reply) => {
   const { title, description, duration } = request.body;
 
   await database.create({
@@ -15,7 +15,7 @@ server.post("/videos", async (request, repply) => {
     duration,
   });
 
-  return repply.status(201).send();
+  return reply.status(201).send();
 });
 
 server.get("/videos", async (request) => {
@@ -26,7 +26,7 @@ server.get("/videos", async (request) => {
   return videos;
 });
 
-server.put("/videos/:id", async (request, repply) => {
+server.put("/videos/:id", async (request, reply) => {
   const videoId = request.params.id;
   const { title, description, duration } = request.body;
 
@@ -35,18 +35,23 @@ server.put("/videos/:id", async (request, repply) => {
     description,
     duration,
   });
-  return repply.status(204).send();
+
+  return reply.status(204).send();
 });
 
-server.delete("/videos/:id", async (request, repply) => {
+server.delete("/videos/:id", async (request, reply) => {
   const videoId = request.params.id;
 
   await database.delete(videoId);
 
-  return repply.status(204).send();
+  return reply.status(204).send();
 });
 
-server.listen(process.env.PORT ?? 3333, () => {
-  console.log(`Server running on port ${process.env.PORT ?? 3333}`);
+// Melhor adicionar tratamento de erro
+server.listen(process.env.PORT ?? 3333, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log(`Server running on ${address}`);
 });
-
