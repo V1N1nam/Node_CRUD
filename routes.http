@@ -1,27 +1,28 @@
-POST https://node-crud-g3c0.onrender.com/videos
+POST https://node-crud-1j57.onrender.com/videos
 Content-Type: application/json
 
 {
-    "title": "video Node pt2",
-    "description": "Esse é o video 01",
+    "title": "Video Node pt3 final",
+    "description": "Esse é o video 03 e o ultimo",
     "duration": 180
 }
 
 ###
 
-GET https://node-crud-g3c0.onrender.com/videos
+GET https://node-crud-1j57.onrender.com/videos
 
 ###
 
-PUT https://node-crud-g3c0.onrender/videos.com/1ecc0c4d-830e-41c8-8e8b-d9cfd395beee
+PUT https://node-crud-1j57.onrender.com/videos/cc56dfdf-5a4d-4589-8cc8-fc55e4150755
 Content-Type: application/json
 
 {
-    "title": "video Node",
-    "description": "Esse é o sobre Node",
+    "title": "video aleatoro",
+    "description": "Esse é aleatorio",
     "duration": 180
 }
 
 ###
 
-DELETE https://node-crud-g3c0.onrender/videos.com/1ecc0c4d-830e-41c8-8e8b-d9cfd395beee
+DELETE https://node-crud-1j57.onrender.com/videos
+/cc56dfdf-5a4d-4589-8cc8-fc55e4150755
